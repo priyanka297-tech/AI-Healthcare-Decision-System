@@ -19,7 +19,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 
-from database import save_prediction, get_all_predictions, search_patient, delete_prediction
+from database import save_prediction, get_all_predictions, search_patient, delete_prediction, initialize_database
 
 
 # ==========================================================
@@ -31,6 +31,8 @@ st.set_page_config(
     page_icon="🏥",
     layout="wide",
 )
+
+initialize_database()
 
 BASE_DIR = Path(__file__).resolve().parent
 ENV_FILE = BASE_DIR / ".env"

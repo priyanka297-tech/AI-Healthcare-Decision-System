@@ -403,17 +403,23 @@ def search_patient(name):
 
 
 # ============================================================
-# CREATE TABLE
+# INITIALIZE DATABASE TABLE
 # ============================================================
-#
-# Call this from your main Streamlit application after
-# the app has started, preferably with error handling.
-#
-# Example:
-#
-# try:
-#     create_table()
-# except Exception as e:
-#     st.warning(f"Database initialization failed: {e}")
-#
-# ============================================================
+
+def initialize_database():
+
+    try:
+
+        if create_table():
+
+            print("✅ patient_history table is ready.")
+
+        else:
+
+            print("❌ Failed to create patient_history table.")
+
+    except Exception as e:
+
+        print(
+            f"❌ Database initialization failed: {e}"
+        )
